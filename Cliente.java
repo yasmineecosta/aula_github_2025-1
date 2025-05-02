@@ -6,6 +6,7 @@ public class Cliente {
     private String cpf;
     private String endereco;
     private double balance;
+    private boolean bloqueada = false;
     private List<String> extrato;
 
     public Cliente(String nome, String cpf, String endereco) {
@@ -78,5 +79,20 @@ public class Cliente {
                 ", endereco='" + endereco + '\'' +
                 ", balance=" + balance +
                 '}';
+    }
+
+    public void bloquearConta() {
+        this.bloqueada = true;
+        System.out.println("Conta bloqueada.");
+    }
+
+    public void desbloquearConta() {
+        this.bloqueada = false;
+        System.out.println("Conta desbloqueada.");
+    }
+
+    public boolean isBloqueada() 
+    {
+        return bloqueada;
     }
 }
