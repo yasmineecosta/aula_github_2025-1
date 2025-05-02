@@ -8,6 +8,8 @@ public class Cliente {
     private double balance;
     private boolean bloqueada = false;
     private List<String> extrato;
+    private String telefone;
+    private String email;
 
     public Cliente(String nome, String cpf, String endereco) {
         this.nome = nome;
@@ -94,5 +96,11 @@ public class Cliente {
     public boolean isBloqueada() 
     {
         return bloqueada;
+    }
+
+    public void atualizarContato(String telefone, String email) {
+        this.telefone = telefone;
+        this.email = email;
+        System.out.println("Informações de contato atualizadas: Telefone - " + telefone + ", Email - " + email);
     }
 }
