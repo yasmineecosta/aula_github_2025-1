@@ -103,4 +103,17 @@ public class Cliente {
         this.email = email;
         System.out.println("Informações de contato atualizadas: Telefone - " + telefone + ", Email - " + email);
     }
+
+    public boolean transferir(Cliente destinatario, double valor) {
+        if (valor > 0 && valor <= balance) {
+            this.balance -= valor;
+            destinatario.addValue(valor);
+            this.extrato.add("Transferido: " + valor + " para " + destinatario.getNome() + ", Saldo atual: " + this.balance);
+            destinatario.extrato.add("Recebido: " + valor + " de " + this.getNome() + ", Saldo atual: " + destinatario.getBalance());
+            return true;
+        } else {
+            System.out.println("Transferência inválida. Certifique-se de que o valor é positivo e menor ou igual ao saldo.");
+            return false;
+        }
+    }
 }
